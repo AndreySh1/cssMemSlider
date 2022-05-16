@@ -1,0 +1,273 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*, *::before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+nav, footer, header, aside{display: block;}
+
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li {list-style: none;}
+img{vertical-align: top;}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html, body {
+    min-height: 100vh;
+    line-height: 110%;
+    font-size: 20px;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background-color: rgba(67, 145, 71, 0.2);
+}
+
+.container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.header_name {
+    font-size: 0.6em;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+}
+
+.header {
+    min-height: 80px;
+    color: #000000;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 500;
+    background-color: rgba(67, 145, 71, 0.5);
+    
+}
+
+.slider__overflow {
+    box-sizing: border-box;
+    padding: 15px 30px;
+    width: 100%;
+    background: #494949;
+    border-radius: 2vw;
+    overflow: hidden;
+    min-height: 60vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 6fr 1fr;
+    grid-gap: 4%;
+    grid-template-areas: "image image" "caption controls";
+    margin: 0 auto;
+}
+.slide {
+    grid-area: image;
+    opacity: 0;
+    transition: all 0.6s;
+    transform: translate(-50%, -50%);
+    border: solid 2px #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 .1rem #fff,
+                0 0 .2rem #fff,
+                0 0 .3rem #0fa,
+                0 0 .8rem #0fa,
+                0 0 1rem #0fa,
+                inset 0 0 1.3rem #0fa;
+    
+}
+
+.slide1 {
+    background: #000 url('img/mem1.gif') center/contain no-repeat;
+} 
+.slide2 {
+    background: #000 url('img/mem2.jpg') center/contain no-repeat;
+}
+.slide3 {
+    background: #000 url('img/mem3.jpg') center/contain no-repeat;
+}
+.slide4 {
+    background: #000 url('img/mem4.jpg') center/contain no-repeat;
+}
+.slide5 {
+    background: #000 url('img/mem5.gif') center/contain no-repeat;
+}
+.slide6 {
+    background: #000 url('img/mem6.png') center/contain no-repeat;
+}
+.slide7 {
+    background: #000 url('img/mem7.webp') center/contain no-repeat;
+}
+.slide8 {
+    background: #000 url('img/mem8.jpg') center/contain no-repeat;
+}
+
+.slide-description {
+    grid-area: caption;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 110%;
+    color: rgb(137, 208, 226);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+}
+.controls {
+    grid-area: controls;
+    justify-self: flex-end;
+    display: flex;
+}
+.btn {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    height: 50%;
+    min-width: 25px;
+    width: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    display: none;
+}
+.marker {
+    display: block;
+    min-height: 15px;
+    height: 1vw;
+    min-width: 15px;
+    width: 1vw;
+    background-color: #a1a1a1;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+.btn:hover .marker{
+    background-color: #FFFFFF;
+}
+.btn:active .marker {
+    background-color: rgba(67, 145, 71, 0.7)
+}
+#switch1:checked ~ .controls .btn .marker-slide1,
+#switch2:checked ~ .controls .btn .marker-slide2,
+#switch3:checked ~ .controls .btn .marker-slide3,
+#switch4:checked ~ .controls .btn .marker-slide4,
+#switch5:checked ~ .controls .btn .marker-slide5,
+#switch6:checked ~ .controls .btn .marker-slide6,
+#switch7:checked ~ .controls .btn .marker-slide7,
+#switch8:checked ~ .controls .btn .marker-slide8 {
+    background-color: rgb(19, 219, 119);
+}
+#switch1:checked ~ .slide1,
+#switch2:checked ~ .slide2,
+#switch3:checked ~ .slide3,
+#switch4:checked ~ .slide4,
+#switch5:checked ~ .slide5,
+#switch6:checked ~ .slide6,
+#switch7:checked ~ .slide7,
+#switch8:checked ~ .slide8 {
+    opacity: 1;
+    transform: translateX(0%);
+}
+#switch1:checked ~ .description1,
+#switch2:checked ~ .description2,
+#switch3:checked ~ .description3,
+#switch4:checked ~ .description4,
+#switch5:checked ~ .description5,
+#switch6:checked ~ .description6,
+#switch7:checked ~ .description7,
+#switch8:checked ~ .description8 {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    background-color: rgba(67, 145, 71, 0.7);
+    width: 100%;
+}
+.footer-container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+    width: 100%;
+    gap: 10px;
+}
+
+
+@media (max-width: 767px) {
+    .slider__overflow {
+        height: 60vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: 10fr 1fr 1fr;
+        grid-template-areas: "image" "controls" "caption ";
+        padding: 5px;
+        width: 95%;
+    }
+    .controls {
+        justify-self: center;
+    }
+    .btn {
+        height: 100%;
+        
+    }
+
+    .slide-description {
+        text-align: center;
+    }
+    .header_name {
+        font-size: 0.4em;
+    }
+    
+
+    .marker {
+        display: block;
+        min-height: 10px;
+        height: 0.8vw;
+        min-width: 10px;
+        width: 0.8vw;
+        background-color: #a1a1a1;
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+    .logo {
+        width: 50px;
+        height: 50px;
+        
+    }
+}
+
+@media (max-width: 320px) {
+    .footer-container{
+        padding: 5px;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5px;
+    }
+}
