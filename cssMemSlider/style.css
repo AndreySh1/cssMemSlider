@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 html, body {
     min-height: 100vh;
     line-height: 110%;
-    font-size: 16px;
+    font-size: 20px;
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
@@ -48,15 +48,13 @@ html, body {
     margin: 0 auto;
 }
 .header_name {
-    font-size: 0.5em;
+    font-size: 0.6em;
 }
+
 .logo {
     width: 60px;
     height: 60px;
-    margin-right: 50%;
-}
-.slider__caption {
-    font-size: 0.7em;
+    margin-right: 5px;
 }
 
 .header {
@@ -71,18 +69,13 @@ html, body {
     background-color: rgba(67, 145, 71, 0.5);
     
 }
-.header__container, .main__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .slider__overflow {
     box-sizing: border-box;
     padding: 15px 30px;
     width: 100%;
     background: #494949;
-    border-radius: 1vw;
+    border-radius: 2vw;
     overflow: hidden;
     min-height: 60vh;
     display: grid;
@@ -90,6 +83,7 @@ html, body {
     grid-template-rows: 6fr 1fr;
     grid-gap: 4%;
     grid-template-areas: "image image" "caption controls";
+    margin: 0 auto;
 }
 .slide {
     grid-area: image;
@@ -104,6 +98,7 @@ html, body {
                 0 0 .8rem #0fa,
                 0 0 1rem #0fa,
                 inset 0 0 1.3rem #0fa;
+    
 }
 
 .slide1 {
@@ -133,10 +128,10 @@ html, body {
 
 .slide-description {
     grid-area: caption;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 300;
     line-height: 110%;
-    color: #FFF;
+    color: rgb(137, 208, 226);
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s;
@@ -209,13 +204,13 @@ input {
     visibility: visible;
 }
 
+
 footer {
     display: flex;
     align-items: center;
     background-color: rgba(67, 145, 71, 0.7);
     width: 100%;
 }
-
 .footer-container{
     padding: 10px;
     display: flex;
@@ -223,4 +218,56 @@ footer {
     align-items:  center;
     width: 100%;
     gap: 10px;
+}
+
+
+@media (max-width: 767px) {
+    .slider__overflow {
+        height: 60vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: 10fr 1fr 1fr;
+        grid-template-areas: "image" "controls" "caption ";
+        padding: 5px;
+        width: 95%;
+    }
+    .controls {
+        justify-self: center;
+    }
+    .btn {
+        height: 100%;
+        
+    }
+
+    .slide-description {
+        text-align: center;
+    }
+    .header_name {
+        font-size: 0.4em;
+    }
+    
+
+    .marker {
+        display: block;
+        min-height: 10px;
+        height: 0.8vw;
+        min-width: 10px;
+        width: 0.8vw;
+        background-color: #a1a1a1;
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+    .logo {
+        width: 50px;
+        height: 50px;
+        
+    }
+}
+
+@media (max-width: 320px) {
+    .footer-container{
+        padding: 5px;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5px;
+    }
 }
